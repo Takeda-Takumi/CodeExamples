@@ -31,7 +31,7 @@ def main(lines):
             map(float, lines[i].split()[0].split(":"))  #secが小数で与えられるのでintではなくfloatにしてます
         pre_time_hour, pre_time_minute, pre_time_second = \
             map(float, lines[i-1].split()[0].split(":"))
-            
+
         current_mileage_m = float(lines[i].split()[1])
 
         time_difference_sec = \
@@ -46,7 +46,7 @@ def main(lines):
 
         current_velocity_mperh = current_mileage_m / (time_difference_sec / (60*60))
 
-        #fix 低速だったら低速走行していた時間を
+        #低速だったら低速走行していた時間をtotal_slowspeed_timeに足す
         if(current_velocity_mperh <= SLOW_PACE_FARE_MPERH):
             total_slowspeed_time += time_difference_sec
 
